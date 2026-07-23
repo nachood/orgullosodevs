@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Misión Lulu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Dancing+Script:wght@700&family=Nunito:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <div class="sky" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <section class="screen intro-screen active" data-screen="intro">
+        <div class="hero-copy">
+          <p class="eyebrow">Misión especial de Lulu</p>
+          <h1>Hoy tuviste un día pesado, pero igual seguiste adelante.</h1>
+          <p>
+            Lulu tiene una misión especial para vos: convertir las nubes feas en
+            estrellas y enormizar corazones con todo el amor que te merecés.
+          </p>
+          <button class="primary-button" type="button" data-start>
+            Empezar misión
+          </button>
+        </div>
+        <img class="lulu intro-lulu" src="lulu.png" alt="Lulu sonriendo" />
+      </section>
+
+      <section class="screen game-screen" data-screen="clouds">
+        <header class="stage-header">
+          <div>
+            <p class="eyebrow">Fase 1</p>
+            <h2>Hace mrd esas nubes feas puaj</h2>
+          </div>
+          <div class="progress-label">
+            <span data-cloud-count>0</span>/<span data-cloud-total>0</span>
+          </div>
+        </header>
+        <div class="play-area" data-cloud-area></div>
+        <img class="lulu stage-lulu" src="lulu.png" alt="Lulu lista para ayudar" />
+      </section>
+
+      <section class="screen game-screen" data-screen="hearts">
+        <header class="stage-header">
+          <div>
+            <p class="eyebrow">Fase 2</p>
+            <h2>¡A enormizar corazones!</h2>
+          </div>
+          <div class="progress-label">
+            <span data-heart-count>0</span>/<span data-heart-total>0</span>
+          </div>
+        </header>
+        <p class="spell">¡Enormizar! Como todo lo que lograste hoy.</p>
+        <div class="message-bubble" data-message>
+          Tocá un corazón para recibir amorcito.
+        </div>
+        <div class="play-area hearts-area" data-heart-area></div>
+        <img class="lulu stage-lulu" src="lulu.png" alt="Lulu usando su magia" />
+      </section>
+
+      <section class="screen finale-screen" data-screen="finale">
+        <img class="lulu finale-lulu" src="lulu.png" alt="Lulu celebrando" />
+        <div class="final-message">
+          <p class="eyebrow">Misión completada</p>
+          <h2>Victoria: corazón gigante desbloqueado.</h2>
+          <p class="script-line">
+            Hoy lo intentaste e hiciste aun cuando te costaba. Te amo mucho y
+            nuevamente estoy muy orgulloso de vos, mi amor. Así como vos estás,
+            yo también siempre voy a estar para vos en momentos así.
+          </p>
+          <button class="secondary-button" type="button" data-restart>
+            Jugar otra vez
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
