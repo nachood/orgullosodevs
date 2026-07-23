@@ -160,21 +160,33 @@ h2 {
 }
 
 .primary-button,
-.secondary-button {
+.secondary-button,
+.ghost-button {
   min-height: 56px;
   padding: 14px 26px;
   border-radius: 999px;
-  color: white;
-  background: linear-gradient(135deg, var(--pink), var(--violet));
-  box-shadow: 0 14px 34px rgba(132, 102, 232, 0.34);
   font-family: "Baloo 2", system-ui, sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   transition: transform 180ms ease, filter 180ms ease;
 }
 
+.primary-button,
+.secondary-button {
+  color: white;
+  background: linear-gradient(135deg, var(--pink), var(--violet));
+  box-shadow: 0 14px 34px rgba(132, 102, 232, 0.34);
+}
+
+.ghost-button {
+  color: #63368b;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 14px 34px rgba(86, 44, 117, 0.16);
+}
+
 .primary-button:hover,
-.secondary-button:hover {
+.secondary-button:hover,
+.ghost-button:hover {
   transform: translateY(-2px) scale(1.03);
   filter: brightness(1.05);
 }
@@ -395,6 +407,50 @@ h2 {
   line-height: 1.08;
 }
 
+.final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.letter {
+  width: min(680px, 100%);
+  max-height: 42vh;
+  margin-top: 20px;
+  padding: 18px 22px;
+  overflow: auto;
+  border: 2px solid rgba(255, 255, 255, 0.78);
+  border-radius: 24px;
+  background: rgba(255, 250, 255, 0.88);
+  box-shadow: var(--shadow);
+  animation: letterIn 360ms ease both;
+}
+
+.letter h3 {
+  margin: 0 0 8px;
+  color: #5c317f;
+  font-family: "Baloo 2", system-ui, sans-serif;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1;
+}
+
+.letter p {
+  margin: 0 0 10px;
+  color: var(--soft-ink);
+  font-weight: 800;
+}
+
+.letter ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.letter li {
+  line-height: 1.25;
+}
+
 @keyframes luluFloat {
   0%,
   100% {
@@ -433,6 +489,17 @@ h2 {
   }
   100% {
     transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes letterIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -501,5 +568,14 @@ h2 {
 
   .script-line {
     font-size: clamp(2rem, 10vw, 3.35rem);
+  }
+
+  .final-actions {
+    justify-content: center;
+  }
+
+  .letter {
+    max-height: none;
+    text-align: left;
   }
 }

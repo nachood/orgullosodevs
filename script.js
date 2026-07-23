@@ -114,25 +114,23 @@ function buildHearts() {
     button.style.top = `${heart.y}%`;
     button.style.setProperty("--size", `${heart.size}px`);
 
-    button.addEventListener(
-      "click",
-      () => {
+    button.addEventListener("click", () => {
+      messageBubble.textContent = messages[index];
+      messageBubble.classList.remove("pop");
+      void messageBubble.offsetWidth;
+      messageBubble.classList.add("pop");
+      createSparkle(heart.x, heart.y, heartArea);
+
+      if (!button.classList.contains("done")) {
         button.classList.add("done");
-        button.disabled = true;
-        createSparkle(heart.x, heart.y, heartArea);
-        messageBubble.textContent = messages[index];
-        messageBubble.classList.remove("pop");
-        void messageBubble.offsetWidth;
-        messageBubble.classList.add("pop");
         enlargedHearts += 1;
         heartCount.textContent = enlargedHearts;
 
         if (enlargedHearts === heartPositions.length) {
           setTimeout(() => showScreen("finale"), 1300);
         }
-      },
-      { once: true }
-    );
+      }
+    });
 
     heartArea.appendChild(button);
   });
@@ -149,6 +147,11 @@ function startHearts() {
 }
 
 document.querySelector("[data-start]").addEventListener("click", startClouds);
+document.querySelector("[data-open-letter]").addEventListener("click", () => {
+  const letter = document.querySelector("[data-letter]");
+  letter.hidden = !letter.hidden;
+});
 document.querySelector("[data-restart]").addEventListener("click", () => {
+  document.querySelector("[data-letter]").hidden = true;
   showScreen("intro");
 });
