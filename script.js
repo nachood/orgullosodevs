@@ -151,6 +151,9 @@ document.querySelector("[data-open-letter]").addEventListener("click", () => {
   const letter = document.querySelector("[data-letter]");
   letter.hidden = !letter.hidden;
 });
+document.querySelector("[data-close-letter]").addEventListener("click", () => {
+  document.querySelector("[data-letter]").hidden = true;
+});
 document.querySelector("[data-restart]").addEventListener("click", () => {
   document.querySelector("[data-letter]").hidden = true;
   showScreen("intro");

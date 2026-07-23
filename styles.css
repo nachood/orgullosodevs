@@ -384,50 +384,140 @@ h2 {
 }
 
 .finale-screen {
-  grid-template-columns: minmax(220px, 0.58fr) minmax(280px, 0.92fr);
+  grid-template-columns: minmax(310px, 0.95fr) minmax(240px, 0.58fr);
   align-items: center;
-  gap: clamp(18px, 5vw, 70px);
+  gap: clamp(18px, 5vw, 64px);
 }
 
 .finale-lulu {
-  justify-self: end;
-  width: min(36vw, 430px);
+  justify-self: center;
+  width: min(30vw, 360px);
   animation: luluFloat 3.7s ease-in-out infinite;
 }
 
 .final-message {
-  padding-right: clamp(0px, 4vw, 44px);
+  position: relative;
+  max-width: 840px;
+  padding-left: clamp(0px, 2vw, 24px);
+}
+
+.finale-screen h2 {
+  max-width: 760px;
+  font-size: clamp(2rem, 3.35vw, 4rem);
 }
 
 .script-line {
-  margin: 22px 0 28px;
+  max-width: 760px;
+  margin: 20px 0 0;
   color: #4b2762;
   font-family: "Dancing Script", cursive;
-  font-size: clamp(2.1rem, 4.7vw, 4.4rem);
-  line-height: 1.08;
+  font-size: clamp(1.9rem, 2.9vw, 3.35rem);
+  line-height: 1.05;
+}
+
+.final-heart-field {
+  position: absolute;
+  inset: 8% -8% auto auto;
+  width: min(260px, 35vw);
+  height: 220px;
+  pointer-events: none;
+}
+
+.final-heart-field span {
+  position: absolute;
+  color: rgba(255, 63, 148, 0.72);
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  filter: drop-shadow(0 10px 18px rgba(255, 111, 174, 0.3));
+  animation: fadeHeart 2.6s ease-in-out infinite;
+}
+
+.final-heart-field span:nth-child(1) {
+  left: 14%;
+  top: 16%;
+}
+
+.final-heart-field span:nth-child(2) {
+  left: 60%;
+  top: 4%;
+  animation-delay: -0.5s;
+}
+
+.final-heart-field span:nth-child(3) {
+  left: 34%;
+  top: 52%;
+  animation-delay: -1s;
+}
+
+.final-heart-field span:nth-child(4) {
+  left: 78%;
+  top: 42%;
+  animation-delay: -1.5s;
+}
+
+.final-heart-field span:nth-child(5) {
+  left: 5%;
+  top: 72%;
+  animation-delay: -2s;
+}
+
+.final-side {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
 }
 
 .final-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.letter-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(45, 23, 72, 0.22);
+  backdrop-filter: blur(6px);
+}
+
+.letter-backdrop[hidden] {
+  display: none;
 }
 
 .letter {
+  position: relative;
   width: min(680px, 100%);
-  max-height: 42vh;
-  margin-top: 20px;
-  padding: 18px 22px;
+  max-height: min(74vh, 680px);
+  padding: 24px;
   overflow: auto;
   border: 2px solid rgba(255, 255, 255, 0.78);
   border-radius: 24px;
-  background: rgba(255, 250, 255, 0.88);
+  background: rgba(255, 250, 255, 0.94);
   box-shadow: var(--shadow);
   animation: letterIn 360ms ease both;
 }
 
+.close-button {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  min-height: 40px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  color: white;
+  background: linear-gradient(135deg, var(--pink), var(--violet));
+  font-family: "Baloo 2", system-ui, sans-serif;
+  font-weight: 700;
+}
+
 .letter h3 {
-  margin: 0 0 8px;
+  margin: 0 92px 8px 0;
   color: #5c317f;
   font-family: "Baloo 2", system-ui, sans-serif;
   font-size: clamp(1.4rem, 2.4vw, 2rem);
@@ -489,6 +579,18 @@ h2 {
   }
   100% {
     transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes fadeHeart {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(8px) scale(0.86);
+  }
+  45% {
+    opacity: 0.96;
+    transform: translateY(-8px) scale(1.1);
   }
 }
 
@@ -567,11 +669,24 @@ h2 {
   }
 
   .script-line {
-    font-size: clamp(2rem, 10vw, 3.35rem);
+    font-size: clamp(1.75rem, 8.6vw, 3rem);
   }
 
   .final-actions {
     justify-content: center;
+  }
+
+  .final-side {
+    gap: 8px;
+  }
+
+  .finale-lulu {
+    width: min(56vw, 260px);
+    order: -1;
+  }
+
+  .final-heart-field {
+    display: none;
   }
 
   .letter {

@@ -70,7 +70,6 @@
       </section>
 
       <section class="screen finale-screen" data-screen="finale">
-        <img class="lulu finale-lulu" src="lulu.png" alt="Lulu celebrando" />
         <div class="final-message">
           <p class="eyebrow">Misión completada</p>
           <h2>Victoria: corazón gigante desbloqueado.</h2>
@@ -79,6 +78,15 @@
             nuevamente estoy muy orgulloso de vos, mi amor. Así como vos estás,
             yo también siempre voy a estar para vos en momentos así.
           </p>
+          <div class="final-heart-field" aria-hidden="true">
+            <span>♥</span>
+            <span>♥</span>
+            <span>♥</span>
+            <span>♥</span>
+            <span>♥</span>
+          </div>
+        </div>
+        <div class="final-side">
           <div class="final-actions">
             <button class="secondary-button" type="button" data-open-letter>
               Abrir cartita
@@ -87,7 +95,13 @@
               Jugar otra vez
             </button>
           </div>
-          <article class="letter" data-letter hidden>
+          <img class="lulu finale-lulu" src="lulu.png" alt="Lulu celebrando" />
+        </div>
+        <div class="letter-backdrop" data-letter hidden>
+          <article class="letter">
+            <button class="close-button" type="button" data-close-letter>
+              Cerrar
+            </button>
             <h3>Cartita de todos los corazones</h3>
             <p>
               Estos eran todos los corazones que Lulu fue guardando para vos:
